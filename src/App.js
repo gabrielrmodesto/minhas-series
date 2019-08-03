@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+	Navbar,
+	NavbarBrand,
+	Collapse,
+	Nav,
+	NavItem,
+	NavLink,
+	NavbarToggler
+} from 'reactstrap';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [open, setOpen] = useState(false);
+	const toggle = () => {
+		setOpen(!open)
+	}
+	return (
+		<div>
+			<Navbar color="light" light expand="md">
+				<NavbarBrand>Minhas Series</NavbarBrand>
+				<NavbarToggler onClick={toggle} />
+				<Collapse isOpen={open} navbar>
+					<Nav className="ml-auto" navbar>
+						<NavItem>
+							<NavLink href="/">Generos</NavLink>
+						</NavItem>
+					</Nav>
+				</Collapse>
+			</Navbar>
+		</div>
+	);
 }
 
 export default App;
